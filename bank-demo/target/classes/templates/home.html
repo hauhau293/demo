@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+Danh sach Khach hang
+<a href="/create">Them KH</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Balance</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Tranfer</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.username}"></td>
+        <td th:text="${customer.balance}"></td>
+        <td><a th:href="@{/edit(id=${customer.id})}">Edit</a></td>
+        <td><a th:href="@{/delete(id=${customer.id})}">Delete</a></td>
+        <td><a th:href="@{/tranfer(id=${customer.id})}">Tranfer</a></td>
+    </tr>
+</table>
+</body>
+</html>
